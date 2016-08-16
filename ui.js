@@ -17,8 +17,9 @@ UI = {
     Turtle.ANGLE_CHAOS = Number(document.getElementById('angle-chaos').value);
     Turtle.DISTANCE_CHAOS = Number(document.getElementById('distance-chaos').value);
 
+    var iterations = Number(document.getElementById('iterations').value);
     var production = document.getElementById('axiom').value;
-    for(var i = 0; i < 10; i++) {
+    for(var i = 0; i < iterations; i++) {
       production = LSystem.stepSystem(production, ruleset);
     }
 
