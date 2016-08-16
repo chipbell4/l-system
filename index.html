@@ -3,13 +3,19 @@
     <head>
         <style>
             .template { display: none; }
+            .container {
+                display: flex;
+            }
+
+            .container > * {
+                flex: 1;
+            }
         </style>
     </head>
     <body>
         <canvas id="canvas" height="400" width="400"></canvas>
         <button id="redraw">Redraw</button> <br/>
-        <p id="rule-description">
-            Available instructions are
+        <div class="container">
             <dl>
                 <dt>F</dt><dd>Go forward a unit</dd>
                 <dt>L</dt><dd>Turn left</dd>
@@ -17,9 +23,9 @@
                 <dt>[</dt><dd>Push position</dd>
                 <dt>]</dt><dd>Pop position</dd>
             </dl>
-        </p>
-        <div id="rules">
-            <button id="add-rule">Add rule</button> <br/>
+            <div id="rules">
+                <button id="add-rule">Add rule</button> <br/>
+            </div>
         </div>
         <div class="template" id="rule-template">
             <div class="rule">
