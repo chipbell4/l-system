@@ -16,6 +16,9 @@ UI = {
     for(var i = 0; i < 6; i++) {
       production = LSystem.stepSystem(production, ruleset);
     }
+
+    var positions = Turtle.followProduction(production);
+    Canvas.drawPath(positions);
   },
 
   init: function() {
