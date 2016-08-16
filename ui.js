@@ -12,7 +12,7 @@ UI = {
   redraw: function() {
     var ruleset = LSystem.parseFromDom();
 
-    var production = 'F';
+    var production = document.getElementById('axiom').value;
     for(var i = 0; i < 10; i++) {
       production = LSystem.stepSystem(production, ruleset);
     }
