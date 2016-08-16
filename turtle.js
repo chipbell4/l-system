@@ -5,16 +5,22 @@ var Turtle = {
   positionStack: [],
   directionStack: [],
 
+  ANGLE: Math.PI / 4,
+  ANGLE_CHAOS: 0.2,
+  DISTANCE_CHAOS: 0.2,
+  DISTANCE: 10,
+
   moves: {
     'L' : function() {
-      Turtle.currentDirection -= Math.PI / 8;
+      Turtle.currentDirection -= Turtle.ANGLE + (Math.random() - 0.5) * Turtle.ANGLE_CHAOS * Turtle.ANGLE;
     },
     'R' : function() {
-      Turtle.currentDirection += Math.PI / 8;
+      Turtle.currentDirection += Turtle.ANGLE + (Math.random() - 0.5) * Turtle.ANGLE_CHAOS * Turtle.ANGLE;
     },
     'F' : function() {
-      Turtle.currentPosition.x += 10 * Math.cos(Turtle.currentDirection);
-      Turtle.currentPosition.y += 10 * Math.sin(Turtle.currentDirection);
+      var distance = Turtle.DISTANCE + (Math.random() - 0.5) * Turtle.DISTANCE * Turtle.DISTANCE_CHAOS;
+      Turtle.currentPosition.x += distance * Math.cos(Turtle.currentDirection);
+      Turtle.currentPosition.y += distance * Math.sin(Turtle.currentDirection);
     },
     '[' : function() {
       Turtle.positionStack.push(Turtle.currentPosition);
