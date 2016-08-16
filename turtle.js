@@ -13,7 +13,7 @@ var Turtle = {
     },
     'F' : function() {
       Turtle.currentPosition.x += 10 * Math.cos(Turtle.currentDirection);
-      Turtle.currentPosition.x += 10 * Math.sin(Turtle.currentDirection);
+      Turtle.currentPosition.y += 10 * Math.sin(Turtle.currentDirection);
     },
     '[' : function() {
       Turtle.positionStack.push(Turtle.currentPosition);
