@@ -23,8 +23,10 @@ UI = {
       production = LSystem.stepSystem(production, ruleset);
     }
 
-    var positions = Turtle.followProduction(production);
-    Canvas.drawPath(positions);
+    var paths = Turtle.followProduction(production);
+    paths.forEach(function(path) {
+      Canvas.drawPath(path);
+    });
   },
 
   init: function() {

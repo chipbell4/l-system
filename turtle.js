@@ -44,6 +44,7 @@ var Turtle = {
   },
 
   followProduction: function(production) {
+    var paths = [];
     var positions = [];
 
     Turtle.reset();
@@ -58,6 +59,7 @@ var Turtle = {
       });
     }
 
-    return positions;
+    paths.push(positions);
+    return paths;
   },
 };
