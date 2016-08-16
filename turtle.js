@@ -3,6 +3,7 @@ var Turtle = {
   currentPosition: { x: 0, y: 0 },
 
   positionStack: [],
+  directionStack: [],
 
   moves: {
     'L' : function() {
@@ -17,11 +18,14 @@ var Turtle = {
     },
     '[' : function() {
       Turtle.positionStack.push(Turtle.currentPosition);
+      Turtle.directionStack.push(Turtle.currentDirection);
     },
     ']' : function() {
       var nextPosition = Turtle.positionStack.pop();
+      var nextDirection = Turtle.directionStack.pop();
       if(nextPosition) {
         Turtle.currentPosition = nextPosition;
+        Turtle.currentDirection = nextDirection;
       }
     }
   },
@@ -29,6 +33,8 @@ var Turtle = {
   reset: function() {
     Turtle.currentPosition = { x: 0, y: 0 };
     Turtle.currentDirection = Math.PI / 4;
+    Turtle.positionStack = [];
+    Turtle.directionStack = [];
   },
 
   followProduction: function(production) {
