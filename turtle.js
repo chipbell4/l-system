@@ -9,6 +9,7 @@ var Turtle = {
   ANGLE_CHAOS: 0.2,
   DISTANCE_CHAOS: 0.2,
   DISTANCE: 10,
+  DISTANCE_REDUCTION: 0.5,
 
   moves: {
     'L' : function() {
@@ -25,6 +26,7 @@ var Turtle = {
     '[' : function() {
       Turtle.positionStack.push(Turtle.currentPosition);
       Turtle.directionStack.push(Turtle.currentDirection);
+      Turtle.DISTANCE *= Turtle.DISTANCE_REDUCTION;
     },
     ']' : function() {
       var nextPosition = Turtle.positionStack.pop();
@@ -32,6 +34,7 @@ var Turtle = {
       if(nextPosition) {
         Turtle.currentPosition = nextPosition;
         Turtle.currentDirection = nextDirection;
+        Turtle.DISTANCE /= Turtle.DISTANCE_REDUCTION;
       }
     }
   },
