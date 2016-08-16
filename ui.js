@@ -13,7 +13,7 @@ UI = {
     var ruleset = LSystem.parseFromDom();
 
     var production = 'F';
-    for(var i = 0; i < 6; i++) {
+    for(var i = 0; i < 10; i++) {
       production = LSystem.stepSystem(production, ruleset);
     }
 
