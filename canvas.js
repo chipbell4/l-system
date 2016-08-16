@@ -38,7 +38,7 @@ var Canvas = {
     });
 
     ctx.beginPath();
-    ctx.moveTo(path[0].x + centerX, path[0].y + centerY);
+    ctx.moveTo(path[0].x, path[0].y);
     for(var i = 1; i < path.length; i++) {
       ctx.lineTo(path[i].x, path[i].y);
     }
