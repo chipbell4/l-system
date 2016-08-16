@@ -1,9 +1,16 @@
 var Canvas = {
-  drawPath: function(path) {
+  clear: function() {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+  },
+
+  drawPath: function(path) {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    Canvas.clear();
 
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 2;
