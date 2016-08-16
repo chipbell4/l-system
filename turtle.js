@@ -49,13 +49,13 @@ var Turtle = {
 
     Turtle.reset();
     for(var i = 0; i < production.length; i++) {
-      if(production[i] in Turtle.moves) {
-        Turtle.moves[production[i]]();
-      }
-
       if(production[i] == ']') {
         paths.push(positions);
         positions = [];
+      }
+
+      if(production[i] in Turtle.moves) {
+        Turtle.moves[production[i]]();
       }
 
       positions.push({
