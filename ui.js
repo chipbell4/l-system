@@ -23,6 +23,8 @@ UI = {
       production = LSystem.stepSystem(production, ruleset);
     }
 
+    Canvas.clear();
+
     var paths = Turtle.followProduction(production);
     paths.forEach(function(path) {
       Canvas.drawPath(path);

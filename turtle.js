@@ -53,6 +53,11 @@ var Turtle = {
         Turtle.moves[production[i]]();
       }
 
+      if(production[i] == ']') {
+        paths.push(positions);
+        positions = [];
+      }
+
       positions.push({
         x: Turtle.currentPosition.x,
         y: Turtle.currentPosition.y,
