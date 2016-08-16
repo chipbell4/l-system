@@ -1,17 +1,13 @@
 var Canvas = {
   clear: function() {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var svg = document.getElementById('canvas');
+    while(svg.firstChild) {
+      svg.removeChild(svg.firstChild);
+    }
   },
 
   drawPath: function(path) {
-    var canvas = document.getElementById('canvas');
-    var ctx = canvas.getContext('2d');
-
-    var centerX = canvas.width / 2;
-    var centerY = canvas.height / 2;
+    var svg = document.querySelector('svg');
 
     // get bounding points
     var xValues = path.map(point => point.x);
@@ -22,8 +18,8 @@ var Canvas = {
     var maxY = yValues.reduce((best, current) => Math.max(best, current), yValues[0]);
 
     // pick scaling factors (preserving aspect ratio)
-    var scaleX = canvas.width / (maxX - minX);
-    var scaleY = canvas.height / (maxY - minY);
+    var scaleX = 100 / (maxX - minX);
+    var scaleY = 100 / (maxY - minY);
     scaleY = Math.min(scaleY, scaleX);
     scaleX = Math.min(scaleY, scaleX);
 
@@ -35,11 +31,12 @@ var Canvas = {
       };
     });
 
-    ctx.beginPath();
-    ctx.moveTo(path[0].x, path[0].y);
-    for(var i = 1; i < path.length; i++) {
-      ctx.lineTo(path[i].x, path[i].y);
-    }
-    ctx.stroke();
+    // create the polyline class
+    var polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
+    polyline.setAttribute('stroke', 'black');
+    polyline.setAttribute('fill', 'none');
+    var pointString = path.reduce((last, point) => last + ' ' + point.x + ',' + point.y, '', '');
+    polyline.setAttribute('points', pointString);
+    svg.appendChild(polyline);
   }
 };
