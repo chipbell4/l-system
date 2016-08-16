@@ -13,7 +13,6 @@ UI = {
     var ruleset = LSystem.parseFromDom();
 
     // update the turtle with parameters
-    Turtle.DISTANCE = Number(document.getElementById('distance').value);
     Turtle.ANGLE = Number(document.getElementById('angle').value);
     Turtle.ANGLE_CHAOS = Number(document.getElementById('angle-chaos').value);
     Turtle.DISTANCE_CHAOS = Number(document.getElementById('distance-chaos').value);
