@@ -9,7 +9,7 @@ var Turtle = {
   ANGLE_CHAOS: 0.2,
   DISTANCE_CHAOS: 0.2,
   DISTANCE: 10,
-  DISTANCE_REDUCTION: 0.5,
+  DISTANCE_REDUCTION: 1,
 
   moves: {
     'L' : function() {
