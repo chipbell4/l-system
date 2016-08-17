@@ -24,7 +24,10 @@ var Turtle = {
       Turtle.currentPosition.y += distance * Math.sin(Turtle.currentDirection);
     },
     '[' : function() {
-      Turtle.positionStack.push(Turtle.currentPosition);
+      Turtle.positionStack.push({
+        x: Turtle.currentPosition.x,
+        y: Turtle.currentPosition.y
+      });
       Turtle.directionStack.push(Turtle.currentDirection);
       Turtle.DISTANCE *= Turtle.DISTANCE_REDUCTION;
     },
