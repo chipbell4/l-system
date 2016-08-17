@@ -6,30 +6,41 @@ var Canvas = {
     }
   },
 
-  drawPath: function(path) {
-    var svg = document.querySelector('svg');
-
+  bounds: function(pathSet) {
+    var allPoints = pathSet.reduce((last, current) => last.concat(current), []);
     // get bounding points
-    var xValues = path.map(point => point.x);
-    var yValues = path.map(point => point.y);
-    var minX = xValues.reduce((best, current) => Math.min(best, current), xValues[0]);
-    var maxX = xValues.reduce((best, current) => Math.max(best, current), xValues[0]);
-    var minY = yValues.reduce((best, current) => Math.min(best, current), yValues[0]);
-    var maxY = yValues.reduce((best, current) => Math.max(best, current), yValues[0]);
+    var xValues = allPoints.map(point => point.x);
+    var yValues = allPoints.map(point => point.y);
 
-    // pick scaling factors (preserving aspect ratio)
-    var scaleX = 100 / (maxX - minX);
-    var scaleY = 100 / (maxY - minY);
+    return {
+      minX: xValues.reduce((best, current) => Math.min(best, current), xValues[0]),
+      maxX: xValues.reduce((best, current) => Math.max(best, current), xValues[0]),
+      minY: yValues.reduce((best, current) => Math.min(best, current), yValues[0]),
+      maxY: yValues.reduce((best, current) => Math.max(best, current), yValues[0]),
+    }
+  },
+
+  normalize: function(pathSet) {
+    var bounds = Canvas.bounds(pathSet);
+    var scaleX = 100 / (bounds.maxX - bounds.minX);
+    var scaleY = 100 / (bounds.maxY - bounds.minY);
     scaleY = Math.min(scaleY, scaleX);
     scaleX = Math.min(scaleY, scaleX);
 
-    // now, rescale
-    path = path.map(function(point) {
+    var rescale = (point) => {
       return {
-        x: (point.x - minX) * scaleX,
-        y: (point.y - minY) * scaleY,
+        x: (point.x - bounds.minX) * scaleX,
+        y: (point.y - bounds.minY) * scaleY,
       };
+    }
+
+    return pathSet.map((path) => {
+      return path.map(rescale);
     });
+  },
+
+  drawPath: function(path) {
+    var svg = document.querySelector('svg');
 
     // create the polyline class
     var polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");

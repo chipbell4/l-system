@@ -26,6 +26,7 @@ UI = {
     Canvas.clear();
 
     var paths = Turtle.followProduction(production);
+    paths = Canvas.normalize(paths);
     paths.forEach(function(path) {
       Canvas.drawPath(path);
     });
