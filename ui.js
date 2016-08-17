@@ -1,7 +1,11 @@
 UI = {
+  $: function(selector) {
+    return document.querySelector(selector);
+  },
+
   addRule: function() {
-    var template = document.querySelector('#rule-template > .rule').cloneNode(true);
-    document.getElementById('rules').appendChild(template);
+    var template = UI.$('#rule-template > .rule').cloneNode(true);
+    UI.$('#rules').appendChild(template);
     template.querySelector('.remove-rule').addEventListener('click', UI.removeRule.bind(UI));
   },
 
@@ -13,12 +17,12 @@ UI = {
     var ruleset = LSystem.parseFromDom();
 
     // update the turtle with parameters
-    Turtle.ANGLE = Number(document.getElementById('angle').value);
-    Turtle.ANGLE_CHAOS = Number(document.getElementById('angle-chaos').value);
-    Turtle.DISTANCE_CHAOS = Number(document.getElementById('distance-chaos').value);
+    Turtle.ANGLE = Number(UI.$('#angle').value);
+    Turtle.ANGLE_CHAOS = Number(UI.$('#angle-chaos').value);
+    Turtle.DISTANCE_CHAOS = Number(UI.$('#distance-chaos').value);
 
-    var iterations = Number(document.getElementById('iterations').value);
-    var production = document.getElementById('axiom').value;
+    var iterations = Number(UI.$('#iterations').value);
+    var production = UI.$('#axiom').value;
     for(var i = 0; i < iterations && production.length < 100000; i++) {
       production = LSystem.stepSystem(production, ruleset);
     }
@@ -33,7 +37,7 @@ UI = {
   },
 
   init: function() {
-    document.getElementById('add-rule').addEventListener('click', UI.addRule.bind(UI));
-    document.getElementById('redraw').addEventListener('click', UI.redraw.bind(UI));
+    UI.$('#add-rule').addEventListener('click', UI.addRule.bind(UI));
+    UI.$('#redraw').addEventListener('click', UI.redraw.bind(UI));
   }
 };
