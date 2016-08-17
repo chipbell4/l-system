@@ -45,6 +45,7 @@ var Canvas = {
     // create the polyline class
     var polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
     polyline.setAttribute('stroke', 'black');
+    polyline.setAttribute('stroke-width', 0.1);
     polyline.setAttribute('fill', 'none');
     var pointString = path.reduce((last, point) => last + ' ' + point.x + ',' + point.y, '', '');
     polyline.setAttribute('points', pointString);
