@@ -19,7 +19,7 @@ UI = {
 
     var iterations = Number(document.getElementById('iterations').value);
     var production = document.getElementById('axiom').value;
-    for(var i = 0; i < iterations; i++) {
+    for(var i = 0; i < iterations && production.length < 100000; i++) {
       production = LSystem.stepSystem(production, ruleset);
     }
 
