@@ -27,6 +27,8 @@ UI = {
       production = LSystem.stepSystem(production, ruleset);
     }
 
+    UI.$('#current-production').value = production.substr(0, 100000);
+
     Canvas.clear();
 
     var paths = Turtle.followProduction(production);

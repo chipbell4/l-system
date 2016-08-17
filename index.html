@@ -16,13 +16,17 @@
         <svg id="canvas" viewBox="0 0 100 100" width="400" height="400">
         </svg>
         <div class="container">
-            <dl>
-                <dt>F</dt><dd>Go forward a unit</dd>
-                <dt>L</dt><dd>Turn left</dd>
-                <dt>R</dt><dd>Turn right</dd>
-                <dt>[</dt><dd>Push position</dd>
-                <dt>]</dt><dd>Pop position</dd>
-            </dl>
+            <div>
+                <dl>
+                    <dt>F</dt><dd>Go forward a unit</dd>
+                    <dt>L</dt><dd>Turn left</dd>
+                    <dt>R</dt><dd>Turn right</dd>
+                    <dt>[</dt><dd>Push position</dd>
+                    <dt>]</dt><dd>Pop position</dd>
+                </dl>
+                <textarea id="current-production">
+                </textarea>
+            </div>
             <div>
                 <div>
                     <label>Axiom <input type="text" id="axiom" value="F" />
