@@ -2,6 +2,19 @@
 <html>
     <head>
         <style>
+            #canvas {
+                width: 50vw;
+                height: 50vw;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            @media(orientation : portrait) {
+                #canvas {
+                    width: 90vw;
+                    height: 90vw;
+                }
+            }
             .template { display: none; }
             .container {
                 display: flex;
@@ -13,7 +26,7 @@
         </style>
     </head>
     <body>
-        <svg id="canvas" viewBox="0 0 100 100" width="400" height="400">
+        <svg id="canvas" viewBox="0 0 100 100">
         </svg>
         <div class="container">
             <div>
@@ -29,7 +42,7 @@
             </div>
             <div>
                 <div>
-                    <label>Axiom <input type="text" id="axiom" value="F" />
+                    <label>Axiom <input type="text" id="axiom" value="F" /></label>
                 </div>
                 <div>
                     <label>Iterations <input type="range" id="iterations" min="1" max="20" step="1" value="5" /></label>
