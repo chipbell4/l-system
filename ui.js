@@ -91,5 +91,15 @@ UI = {
     UI.$('#presets').addEventListener('change', function(evt) {
       UI.loadConfig(Examples[this.value]);
     });
+
+    var sessionKey = 'lSystemSavedWork';
+    if(localStorage.getItem(sessionKey) !== null) {
+      var config = JSON.parse(localStorage.getItem(sessionKey));
+      UI.loadConfig(config);
+    }
+
+    window.addEventListener("beforeunload", function (event) {
+      localStorage.setItem(sessionKey, JSON.stringify(UI.serializePreset()));
+    });
   }
 };
