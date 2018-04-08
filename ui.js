@@ -60,6 +60,30 @@ UI = {
     });
   },
 
+  serializePreset: function() {
+    var preset = {};
+    ['iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
+      preset[field] = Number(UI.$('#' + field).value);
+    });
+
+    preset.rules = [];
+
+    var ruleNodes = document.querySelectorAll('#rules > .rule');
+    for(var i = 0; i < ruleNodes.length; i++) {
+      var node = ruleNodes[i];
+
+      var start = node.querySelector('.start').value.trim();
+      var end = node.querySelector('.end').value.trim();
+
+      preset.rules.push({
+        value: start,
+        replacement: end
+      });
+    }
+
+    return preset;
+  },
+
   init: function() {
     UI.$('#add-rule').addEventListener('click', UI.addRule.bind(UI));
     UI.$('#redraw').addEventListener('click', UI.redraw.bind(UI));
