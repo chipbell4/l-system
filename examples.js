@@ -38,5 +38,49 @@ Examples = {
     rules: [
       { value: 'F', replacement: 'FRFLFLFRF' }
     ]
+  },
+  maze: {
+    "iterations": 8,
+    "angle": 1.57,
+    "angle-chaos": 0,
+    "distance-chaos": 0,
+    "rules": [
+      { "value": "F", "replacement": "FRFRFLFL" }
+    ]
+  },
+  plant: {
+    "axiom": "X",
+    "iterations": 5,
+    "angle": 0.43,
+    "angle-chaos": 0,
+    "distance-chaos": 0,
+    "rules": [
+      {
+        "value": "F",
+        "replacement": "FF"
+      },
+      {
+        "value": "X",
+        "replacement": "FL[[X]RX]RF[RFX]LX"
+      }
+    ]
+  },
+  dragon: {
+    axiom: 'FX',
+    iterations: 15,
+    angle: 1.57,
+    "angle-chaos": 0,
+    "distance-chaos": 0,
+    "rules": [
+      {
+        value: "X",
+        replacement: "XRYFR"
+      },
+      {
+        value: "Y",
+        replacement: "LFXLY"
+      }
+    ]
   }
 };
+
