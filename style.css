@@ -1,0 +1,21 @@
+#canvas {
+    width: 50vw;
+    height: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+@media(max-width: 600px) {
+    #canvas {
+        width: 90vw;
+        height: 90vw;
+    }
+}
+.template { display: none; }
+.container {
+    display: flex;
+}
+
+.container > * {
+    flex: 1;
+}
