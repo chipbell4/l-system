@@ -24,7 +24,7 @@ UI = {
   },
 
   loadConfig: function(config) {
-    ['iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
+    ['axiom', 'iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
       UI.$('#' + field).value = config[field];
     });
 
@@ -62,7 +62,7 @@ UI = {
 
   serializePreset: function() {
     var preset = {};
-    ['iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
+    ['axiom', 'iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
       preset[field] = Number(UI.$('#' + field).value);
     });
 
