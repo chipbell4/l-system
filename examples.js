@@ -40,6 +40,7 @@ Examples = {
     ]
   },
   maze: {
+    "axiom": 'F',
     "iterations": 8,
     "angle": 1.57,
     "angle-chaos": 0,
