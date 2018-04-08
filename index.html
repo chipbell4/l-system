@@ -21,6 +21,17 @@
                 However, we can acheive greater complexity if we add two additional commands: <code>[</code> which "remembers" your previous location and <code>]</code> which moves the
                 cursor/turtle/pen back to the location it was at when the last <code>[</code> was encountered.
                 </p>
+                <p>
+                The best way to explore is start from some of the presets so you can get a feel for how the rules interact:
+                <br/>
+                <select id="presets">
+                    <option disabled selected value> -- </option>
+                    <option value="bird">Bird</option>
+                    <option value="dandelion">Dandelion</option>
+                    <option value="coral">Coral</option>
+                    <option value="koch">Koch Snowflake</option>
+                </select>
+                </p>
                 <div>
                     <label>Axiom <input type="text" id="axiom" value="F" /></label>
                 </div>
@@ -55,6 +66,7 @@
                 <button class="remove-rule">&times;</button>
             </div>
         </div>
+        <script src="examples.js"></script>
         <script src="ui.js"></script>
         <script src="l-system.js"></script>
         <script src="turtle.js"></script>

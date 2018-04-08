@@ -63,5 +63,8 @@ UI = {
   init: function() {
     UI.$('#add-rule').addEventListener('click', UI.addRule.bind(UI));
     UI.$('#redraw').addEventListener('click', UI.redraw.bind(UI));
+    UI.$('#presets').addEventListener('change', function(evt) {
+      UI.loadConfig(Examples[this.value]);
+    });
   }
 };
