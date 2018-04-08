@@ -5,35 +5,22 @@
     </head>
     <body>
         <h1>L Systems</h1>
-        <p>
-        This page can draw an <a href="https://en.wikipedia.org/wiki/L-system">L-System</a> from a given ruleset and axioms.
-        This works by starting with an initial string, called the <em>axiom</em>, and then applying transformation rules to it.
-        For example, if the axiom was <code>F</code> and the ruleset was a single rule, <code>F → FRF</code>, a single
-        application of the ruleset would convert the axiom to <code>FRF</code>. A second application would give <code>FRFRFRF</code>
-        since the two <code>F</code>s would be replaced. In the case of conflicting rules, e.g. <code>F → FR</code> and <code>F → FL</code>,
-        the choice of replacement is random which can result in interesting patterns.
-        </p>
-        <p>
-        One way of visualizing an L-system is interpret the characters as drawing commands ala Logo and <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Graphics</a>.
-        For instance we can interpret <code>F</code> as "move forward", <code>L</code> as "turn left", and <code>R</code> as "turn right".
-        However, we can acheive greater complexity if we add two additional commands: <code>[</code> which "remembers" your previous location and <code>]</code> which moves the
-        cursor/turtle/pen back to the location it was at when the last <code>[</code> was encountered.
-        </p>
-        <svg id="canvas" viewBox="0 0 100 100">
-        </svg>
-        <div class="container">
-            <div>
-                <dl>
-                    <dt>F</dt><dd>Go forward a unit</dd>
-                    <dt>L</dt><dd>Turn left</dd>
-                    <dt>R</dt><dd>Turn right</dd>
-                    <dt>[</dt><dd>Push position</dd>
-                    <dt>]</dt><dd>Pop position</dd>
-                </dl>
-                <textarea id="current-production">
-                </textarea>
-            </div>
-            <div>
+        <div class="flex-container">
+            <div class="flex-item">
+                <p>
+                This page can draw an <a href="https://en.wikipedia.org/wiki/L-system">L-System</a> from a given ruleset and axioms.
+                This works by starting with an initial string, called the <em>axiom</em>, and then applying transformation rules to it.
+                For example, if the axiom was <code>F</code> and the ruleset was a single rule, <code>F → FRF</code>, a single
+                application of the ruleset would convert the axiom to <code>FRF</code>. A second application would give <code>FRFRFRF</code>
+                since the two <code>F</code>s would be replaced. In the case of conflicting rules, e.g. <code>F → FR</code> and <code>F → FL</code>,
+                the choice of replacement is random which can result in interesting patterns.
+                </p>
+                <p>
+                One way of visualizing an L-system is interpret the characters as drawing commands ala Logo and <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Graphics</a>.
+                For instance we can interpret <code>F</code> as "move forward", <code>L</code> as "turn left", and <code>R</code> as "turn right".
+                However, we can acheive greater complexity if we add two additional commands: <code>[</code> which "remembers" your previous location and <code>]</code> which moves the
+                cursor/turtle/pen back to the location it was at when the last <code>[</code> was encountered.
+                </p>
                 <div>
                     <label>Axiom <input type="text" id="axiom" value="F" /></label>
                 </div>
@@ -50,9 +37,14 @@
                     <label>Distance Chaos <input type="range" id="distance-chaos" min="0.0" max="1.0" step="0.01" value="0.0" /></label>
                 </div>
                 <button id="redraw">Redraw</button> <br/>
+                <textarea id="current-production"></textarea>
                 <div id="rules">
                 </div>
                 <button id="add-rule">+</button>
+            </div>
+            <div class="flex-item">
+                <svg id="canvas" viewBox="0 0 100 100">
+                </svg>
             </div>
         </div>
         <div class="template" id="rule-template">
