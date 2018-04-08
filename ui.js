@@ -62,7 +62,8 @@ UI = {
 
   serializePreset: function() {
     var preset = {};
-    ['axiom', 'iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
+    preset.axiom = UI.$('#axiom').value;
+    ['iterations', 'angle', 'angle-chaos', 'distance-chaos'].forEach(function(field) {
       preset[field] = Number(UI.$('#' + field).value);
     });
 

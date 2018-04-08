@@ -81,6 +81,19 @@ Examples = {
         replacement: "LFXLY"
       }
     ]
+  },
+  tunnel: {
+    "axiom": 'F',
+    "iterations": 10,
+    "angle": 2.844,
+    "angle-chaos": 0,
+    "distance-chaos": 0,
+    "rules": [
+      {
+        "value": "F",
+        "replacement": "FRF"
+      }
+    ]
   }
 };
 
